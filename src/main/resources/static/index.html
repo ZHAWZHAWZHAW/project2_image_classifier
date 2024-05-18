@@ -1,40 +1,73 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="de">
 <head>
+    <meta charset="UTF-8">
     <title>Image Classification with DJL Serving</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #0061ff, #60efff);
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+        }
+        .content-container:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+            transform: scale(1.02);
+        }
+        h1 {
+            color: #0056b3;
+        }
+        #answerPart {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        input[type="file"] {
+            transition: background-color 0.25s ease-out;
+        }
+        input[type="file"]:hover {
+            background-color: #cceeff;
+        }
+    </style>
     <script src="script.js" async></script>
 </head>
-
 <body>
-
-    <div class="container-fluid">
+    <div class="content-container">
         <h1>Image Classification with DJL Serving</h1>
-        <p>DJL Demonstration by mosa</p>
-
+        <p>DJL Demonstration by schneli3</p>
         <form>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Bitte Bild hochladen (jpeg, png)</label>
+                <label for="image">Bitte Bild hochladen (jpeg, png)</label>
                 <input type="file" accept="image/png, image/jpeg" class="form-control-file" id="image" name="image"
                     onchange="checkFiles(this.files);">
             </div>
         </form>
-
         <div id="answerPart" style="visibility: hidden;">
-            <p><b>Answer:</b>
+            <p><b>Answer:</b></p>
             <div id="answer"></div>
-            </p>
-
-            <p id="previewPart"><b>Analyzed Image:</b>
-            <p><img id="preview" width="300" src="#" alt="preview" /></p>
-            </p>
+            <p><b>Analyzed Image:</b></p>
+            <img id="preview" src="#" alt="preview image" />
         </div>
     </div>
-
-
 </body>
-
 </html>
