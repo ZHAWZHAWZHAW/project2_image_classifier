@@ -7,12 +7,14 @@ function displayResults(data) {
     resultsHtml += '<thead><tr><th>Klasse</th><th>Wahrscheinlichkeit</th><th></th></tr></thead><tbody>';
     data.forEach(item => {
         const probabilityPercentage = (item.probability * 100).toFixed(2);
-        resultsHtml += `<tr><td>${item.className}</td><td>${probabilityPercentage}%</td>`;
+        const className = item.className.replace(/n\d{8}\s/, '');  // Entfernt n02123045 und ähnliches
+        resultsHtml += `<tr><td>${className}</td><td>${probabilityPercentage}%</td>`;
         resultsHtml += `<td><div class="progress"><div class="progress-bar" role="progressbar" style="width: ${probabilityPercentage}%" aria-valuenow="${probabilityPercentage}" aria-valuemin="0" aria-valuemax="100"></div></div></td></tr>`;
     });
     resultsHtml += '</tbody></table>';
     document.getElementById('answer').innerHTML = resultsHtml;
 }
+
 function checkFiles(files) {
     console.log(files);
     if (files.length != 1) {
