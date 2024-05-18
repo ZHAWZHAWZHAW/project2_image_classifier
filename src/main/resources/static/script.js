@@ -36,10 +36,10 @@ function checkFiles(files) {
     fetch('/analyze', {
         method: 'POST',
         body: formData
-    }).then(response => response.json()) // Ensure that the response is expected and processed as JSON
+    }).then(response => response.json())
     .then(data => {
-        console.log(data); // For debugging to see the actual response
-        displayResults(data); // Function to display results
+        console.log(data);
+        displayResults(data);
     }).catch(error => {
         console.error('Error in the request:', error);
         document.getElementById('answer').innerHTML = "Fehler bei der Verarbeitung Ihrer Anfrage.";
